@@ -1,0 +1,8 @@
+package Decorator;
+
+public class KhuyenMaiABC extends  KhuyenMai{
+    public KhuyenMaiABC(ThueBao thueBao) {
+        super(thueBao);
+    }
+   
+}

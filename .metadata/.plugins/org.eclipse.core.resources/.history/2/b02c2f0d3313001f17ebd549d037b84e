@@ -1,0 +1,13 @@
+package com.nvtrung.dp.absfactory.style1;
+
+import com.nvtrung.dp.absfactory.DongVatBien;
+
+public class HaiCau implements DongVatBien{
+
+	@Override
+	public void boi() {
+		System.out.printf("Hai cau boi trong nuoc");
+		
+	}
+
+}

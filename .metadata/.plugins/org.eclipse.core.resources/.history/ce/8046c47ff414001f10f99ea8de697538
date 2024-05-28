@@ -1,0 +1,86 @@
+package ChuongTrinh;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import Singleton.DatabaseConnection;
+import SinhVien.SinhVien;
+
+public class ChuongTrinh {
+    private List<SinhVien> studentCache = new ArrayList<>();
+    private boolean cacheValid = false;
+
+    public List<SinhVien> getAllStudents() {
+        if (!cacheValid) {
+            studentCache.clear();
+            try (Connection conn = DatabaseConnection.getInstance().getConnection()) {
+                if (conn != null) { // Kiểm tra connection không null
+                    System.out.println("Connection is open");
+                    String sql = "SELECT * FROM Students";
+                    try (PreparedStatement pstmt = conn.prepareStatement(sql);
+                         ResultSet rs = pstmt.executeQuery()) {
+                        while (rs.next()) {
+                            String studentID = rs.getString("StudentID");
+                            String fullName = rs.getString("FullName");
+                            boolean isMale = rs.getBoolean("IsMale");
+                            Date dateOfBirth = rs.getDate("DateOfBirth");
+                            studentCache.add(new SinhVien(studentID, fullName, isMale, dateOfBirth));
+                        }
+                    }
+                    cacheValid = true;
+                } else {
+                    System.out.println("Connection is null");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return studentCache;
+    }
+
+    public void addStudent(String studentID, String fullName, boolean isMale, Date dateOfBirth) {
+        try (Connection conn = DatabaseConnection.getInstance().getConnection()) {
+            if (conn != null && !conn.isClosed()) { // Kiểm tra kết nối có tồn tại và chưa bị đóng
+                System.out.println("Connection is open");
+                String sql = "INSERT INTO Students (StudentID, FullName, IsMale, DateOfBirth) VALUES (?, ?, ?, ?)";
+                try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
+                    pstmt.setString(1, studentID);
+                    pstmt.setString(2, fullName);
+                    pstmt.setBoolean(3, isMale);
+                    pstmt.setDate(4, new java.sql.Date(dateOfBirth.getTime()));
+                    pstmt.executeUpdate();
+                    
+                    // Thêm sinh viên vào cache mà không xóa toàn bộ cache và đánh dấu nó là không hợp lệ
+                    studentCache.add(new SinhVien(studentID, fullName, isMale, dateOfBirth));
+                }
+            } else {
+                System.out.println("Connection is null or closed");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static void main(String[] args) {
+        ChuongTrinh manager = new ChuongTrinh();
+
+        System.out.println("Danh sách tất cả sinh viên ban đầu:");
+        for (SinhVien student : manager.getAllStudents()) {
+            System.out.println(student);
+        }
+
+        Date dateOfBirth = new Date(2000 - 1900, 1 - 1, 1);
+        manager.addStudent("T1020081", "Trần Văn AV", true, dateOfBirth);
+
+        System.out.println("\nDanh sách tất cả sinh viên sau khi bổ sung:");
+        for (SinhVien student : manager.getAllStudents()) {
+            System.out.println(student);
+        }
+    }
+}

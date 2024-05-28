@@ -1,0 +1,26 @@
+package composition;
+
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Panel extends Component {
+    private List<Component> components;
+
+    public Panel(Color color) {
+        super(color);
+        this.components = new ArrayList<>();
+    }
+
+    public void add(Component component) {
+        components.add(component);
+    }
+
+    @Override
+    public void setBackColor(Color x) {
+        super.setBackColor(x);
+        for (Component component : components) {
+            component.setBackColor(x);
+        }
+    }
+}

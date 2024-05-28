@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class ChuongTrinh {
+    public static void main(String[] args) {
+        listAllStudents();
+    }
+
+    public static void listAllStudents() {
+        try {
+            DbHelper dbHelper = DbHelper.getInstance();
+            Connection connection = dbHelper.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * FROM SinhVien");
+
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("MSSV") + " - " + resultSet.getString("HoTen"));
+            }
+
+            resultSet.close();
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

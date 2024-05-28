@@ -1,0 +1,81 @@
+package com.nvtrung.baikiemtraso1.ui;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import com.nvtrung.baikiemtraso1.implement.NguonDuLieuSqlServer;
+import com.nvtrung.baikiemtraso1.implement.NguonDuLieuVanBan;
+import com.nvtrung.baikiemtraso1.model.CauHinh;
+import com.nvtrung.baikiemtraso1.model.SinhVien;
+import com.nvtrung.baikiemtraso1.service.NguonDuLieu;
+
+public class ChuongTrinh {
+
+    static CauHinh docCauHinhTuFile() throws IOException {
+        var ch = new CauHinh();
+        var br = new BufferedReader(new FileReader("C:\\Users\\kstha\\DesignPattern\\config.txt"));
+        String loaiNguon = br.readLine();
+        ch.setLoaiNguon(loaiNguon);
+        String chuoiKetNoi = br.readLine();
+        ch.setChuoiKetNoi(chuoiKetNoi);
+        br.close();
+        
+        return ch;
+    }
+
+    public static void main(String[] args) throws IOException {
+        var ch = docCauHinhTuFile();
+        
+        NguonDuLieu ndl;
+        if (ch.getLoaiNguon().equals(CauHinh.LOAI_TEXT_FILE))
+            ndl = new NguonDuLieuVanBan(ch.getChuoiKetNoi());
+        else
+            ndl = new NguonDuLieuSqlServer(ch.getChuoiKetNoi());
+
+        // 1. Đọc & in danh sách sv
+        var lst = ndl.selectAll();
+        System.out.println("Danh sách các sinh viên đọc được");
+        inDanhSach(lst);
+
+        // 2. Insert sv vào nguồn dữ liệu
+        SinhVien nvtrung = new SinhVien();
+        nvtrung.setMaSinhVien("123");
+        nvtrung.setHoTen("Nguyễn");
+        nvtrung.setGioiTinhNam(true);
+        nvtrung.setNgaySinh(null);
+
+        ndl.insert(nvtrung);
+        System.out.println("Danh sách sinh viên sau khi insert");
+        lst = ndl.selectAll();
+        inDanhSach(lst);
+
+        // 3. Xoá sinh viên khỏi nguồn dữ liệu
+        ndl.delete("T012003s"); 
+
+        // Hiển thị danh sách sinh viên sau khi xóa
+        lst = ndl.selectAll();
+        System.out.println("Danh sách sinh viên sau khi xóa");
+        inDanhSach(lst);
+    }
+
+    /**
+     * In danh sách sinh viên trong danh sách lst ra màn hình
+     * 
+     * @param lst
+     */
+    private static void inDanhSach(List<SinhVien> lst) {
+        for (int i = 0; i < lst.size(); i++) {
+            var sv = lst.get(i);
+            System.out.printf("%5s %30s %8s %s\n", //
+                    sv.getMaSinhVien(), //
+                    sv.getHoTen(), //
+                    sv.isGioiTinhNam(), //
+                    sv.getNgaySinh());//
+        }
+    }
+}

@@ -1,0 +1,37 @@
+package Decorator;
+
+import java.sql.Date;
+
+public class KhuyenMai extends  ThueBao{
+	protected Date ngayBatDauApDung;
+	protected ThueBao x;
+
+    public KhuyenMai(ThueBao x) {
+        this.x = x;
+    }
+
+
+	int getPhiThueBao() {
+        return thueBao.getPhiThueBao();
+    }
+
+
+    int getSoPhutGoiFree() {
+        return thueBao.getSoPhutGoiFree();
+    }
+
+
+    int getSoTinNhanFree() {
+        return thueBao.getSoPhutGoiFree();
+    }
+
+
+    int getGiaGoi() {
+        return thueBao.getGiaGoi();
+    }
+
+
+    int getGiaTinNhan() {
+        return thueBao.getGiaTinNhan();
+    }
+}

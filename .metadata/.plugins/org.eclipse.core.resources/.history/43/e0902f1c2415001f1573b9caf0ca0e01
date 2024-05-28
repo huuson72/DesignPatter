@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class ArrayListTest { 
+	public static void main(String[] args) {
+		HashMap<String, String> cpt = new HashMap<String, String>();
+		cpt.put("VN", "Ha Noi");
+		cpt.put("London", "Anh");
+		for(String i: cpt.keySet()) {
+			
+		}
+		
+	}
+
+}

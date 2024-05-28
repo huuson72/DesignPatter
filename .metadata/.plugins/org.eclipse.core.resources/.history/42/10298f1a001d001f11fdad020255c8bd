@@ -1,0 +1,43 @@
+package Singleton;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import Config.Config;
+
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
+    private Connection connection;
+
+    private DatabaseConnection() {
+        Config config = new Config("C:\\Users\\kstha\\DesignPattern\\KiemTraThem\\src\\config.ini");
+        String url = config.getUrl();
+        try {
+            if (url != null) {
+                // Thay đổi cách lấy kết nối ở đây
+                connection = DriverManager.getConnection(url);
+            } else {
+                System.out.println("URL is null");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Failed to create the database connection using URL: " + url);
+        }
+    }
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            synchronized (DatabaseConnection.class) {
+                if (instance == null) {
+                    instance = new DatabaseConnection();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.jerry.dp.CongNhan"/>
+    <fullyQualifiedTypeName name="com.adapter.PhanTu"/>
+    <fullyQualifiedTypeName name="com.peter.dp.SinhVienReader"/>
+    <fullyQualifiedTypeName name="com.jerry.dp.CongNhanReader"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="com.peter.dp.SinhVien"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="composition.MyColor"/>
+    <fullyQualifiedTypeName name="flyweight.ShapeFactory"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.io.BufferedReader"/>
+    <fullyQualifiedTypeName name="java.io.FileReader"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.simplefactory.VậtThểBay"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.simplefactory.ConVật"/>
+    <fullyQualifiedTypeName name="javax.swing.text.GapContent"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.style1.FactoryStyle1"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.DongVatAnCo"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.DongVatAnThit"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.DongVatFactory"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.style2.CaHeo"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.style1.HaiCau"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.style2.FactoryStyle2"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.absfactory.DongVatBien"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="Decorator.ThueBao"/>
+    <fullyQualifiedTypeName name="java.util.zip.CheckedOutputStream"/>
+    <fullyQualifiedTypeName name="com.nvtrung.dp.factorymethod.ChóFactory"/>
+    <fullyQualifiedTypeName name="test.ite.IteratorSoNguyen"/>
+    <fullyQualifiedTypeName name="test.ite.implement.IteratorSoNguyenChuan"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="SinhVien.SinhVien"/>
+    <fullyQualifiedTypeName name="Singleton.DatabaseConnection"/>
+    <fullyQualifiedTypeName name="Config.Config"/>
+    <fullyQualifiedTypeName name="java.sql.DriverManager"/>
+    <fullyQualifiedTypeName name="ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+</qualifiedTypeNameHistroy>

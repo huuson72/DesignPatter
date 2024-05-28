@@ -1,0 +1,7 @@
+package com.nvtrung.dp.absfactory.style2;
+
+import com.nvtrung.dp.absfactory.DongVatBien;
+
+public class CaHeo implements DongVatBien {
+
+}

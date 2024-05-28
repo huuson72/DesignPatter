@@ -1,0 +1,4 @@
+[database]
+url=jdbc:sqlserver://localhost:1433;databaseName=SinhVien
+user=sa
+password=070203

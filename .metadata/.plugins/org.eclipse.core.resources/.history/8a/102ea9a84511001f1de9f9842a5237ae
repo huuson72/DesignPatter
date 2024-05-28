@@ -1,0 +1,9 @@
+package composition;
+
+import java.awt.Color;
+
+public class Label extends Control {
+    public Label(Color mauNen, String text) {
+        super(mauNen, text);
+    }
+}

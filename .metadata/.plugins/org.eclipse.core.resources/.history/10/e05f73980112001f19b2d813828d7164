@@ -1,0 +1,67 @@
+package com.nvtrung.baikiemtraso1.ui;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
+
+import com.nvtrung.baikiemtraso1.implement.NguonDuLieuSqlServer;
+import com.nvtrung.baikiemtraso1.implement.NguonDuLieuVanBan;
+import com.nvtrung.baikiemtraso1.model.CauHinh;
+import com.nvtrung.baikiemtraso1.model.SinhVien;
+import com.nvtrung.baikiemtraso1.service.NguonDuLieu;
+"C:\\Users\\kstha\\DesignPattern\\config.txt"
+public class ChuongTrinh {
+
+    static CauHinh docCauHinhTuFile() throws IOException {
+        var ch = new CauHinh();
+        try (var br = new BufferedReader(new FileReader("path/to/config.txt"))) {
+            ch.setLoaiNguon(br.readLine());
+            ch.setChuoiKetNoi(br.readLine());
+        }
+        return ch;
+    }
+
+    public static void main(String[] args) throws IOException, ParseException {
+        var ch = docCauHinhTuFile();
+        
+        NguonDuLieu ndl;
+        if (ch.getLoaiNguon().equals(CauHinh.LOAI_TEXT_FILE))
+            ndl = new NguonDuLieuVanBan(ch.getChuoiKetNoi());
+        else
+            ndl = new NguonDuLieuSqlServer(ch.getChuoiKetNoi());
+
+        // 1. Đọc & in danh sách sv
+        var lst = ndl.selectAll();
+        System.out.println("Danh sách các sinh viên đọc được");
+        inDanhSach(lst);
+
+        // 2. Insert sv vào nguồn dữ liệu
+        SinhVien nvtrung = new SinhVien();
+        nvtrung.setMaSinhVien("123");
+        nvtrung.setHoTen("Nguyễn Văn Trung");
+        nvtrung.setGioiTinhNam(true);
+        nvtrung.setNgaySinh(new SimpleDateFormat("yyyy/MM/dd").parse("2001/01/01"));
+
+        ndl.insert(nvtrung);
+        System.out.println("Danh sách sinh viên sau khi insert");
+        lst = ndl.selectAll();
+        inDanhSach(lst);
+
+        // 3. Xoá sinh viên khỏi nguồn dữ liệu
+        ndl.delete("123");
+        lst = ndl.selectAll();
+        inDanhSach(lst);
+    }
+
+    private static void inDanhSach(List<SinhVien> lst) {
+        for (SinhVien sv : lst) {
+            System.out.printf("%5s %30s %8s %s\n", //
+                    sv.getMaSinhVien(), //
+                    sv.getHoTen(), //
+                    sv.isGioiTinhNam(), //
+                    sv.getNgaySinh() != null ? new SimpleDateFormat("yyyy/MM/dd").format(sv.getNgaySinh()) : "null");//
+        }
+    }
+}

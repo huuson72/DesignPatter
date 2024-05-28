@@ -1,0 +1,23 @@
+package SinhVien;
+
+import java.util.Date;
+
+public class SinhVien {
+	 private int maSV;
+	    private String hoTen;
+	    private boolean gioiTinh;
+	    private String ngaySinh;
+
+	    public SinhVien(int studentID, String fullName, boolean isMale, String dateOfBirth) {
+	        this.maSV = studentID;
+	        this.hoTen = fullName;
+	        this.gioiTinh = isMale;
+	        this.ngaySinh = dateOfBirth;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "StudentID: " + maSV + ", FullName: " + hoTen + ", IsMale: " + gioiTinh + ", DateOfBirth: " + ngaySinh;
+	    }
+
+}

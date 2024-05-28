@@ -1,0 +1,18 @@
+package composition;
+
+public class Control implements IControl {
+    private Color mauNen;
+    private String text;
+
+    public Control(Color mauNen, String text) {
+        this.mauNen = mauNen;
+        this.text = text;
+    }
+
+    @Override
+    public void setBackColor(Color color) {
+        mauNen = color;
+    }
+
+    // Getters and setters for mauNen and text
+}

@@ -1,0 +1,38 @@
+package Singleton;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import Config.Config;
+
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
+    private Connection connection;
+    private String url;
+
+    private DatabaseConnection() {
+        Config config = new Config("C:\\Users\\kstha\\OneDrive\\Máy tính\\config.ini.txt"); // Đbảo đường dẫn đúng
+        this.url = config.getUrl();
+        try {
+            this.connection = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            synchronized (DatabaseConnection.class) {
+                if (instance == null) {
+                    instance = new DatabaseConnection();
+                }
+            }
+        }
+        return instance;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+}

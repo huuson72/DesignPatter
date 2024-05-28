@@ -1,0 +1,13 @@
+package com.nvtrung.dp.simplefactory;
+
+public class VậtThểBay implements ConVật{
+	public void bay() {
+		System.out.println("Tôi có thể bay được");
+	}
+
+	@Override
+	public void kêu() {
+		// TODO Auto-generated method stub
+		
+	}
+}
