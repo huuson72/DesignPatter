@@ -1,9 +1,0 @@
-package composition;
-
-import java.awt.Color;
-
-public class Button extends Control {
-    public Button(Color mauNen, String text) {
-        super(mauNen, text);
-    }
-}

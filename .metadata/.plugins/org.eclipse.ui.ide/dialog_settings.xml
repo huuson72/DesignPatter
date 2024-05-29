@@ -6,6 +6,8 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="D:\DesignPattern"/>
+			<item value="D:\DesignPattern\Singleton"/>
 			<item value="C:\Users\kstha\DesignPattern\BaiKTThem"/>
 			<item value="C:\Users\kstha\DesignPattern\SimpleFactory_KT01"/>
 			<item value="C:\Users\kstha\DesignPattern\SinhVienLib"/>

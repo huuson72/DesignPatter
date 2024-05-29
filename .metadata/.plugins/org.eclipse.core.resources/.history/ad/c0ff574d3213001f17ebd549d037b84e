@@ -1,7 +1,0 @@
-package com.nvtrung.dp.absfactory;
-
-public abstract class DongVatFactory {
-	public abstract DongVatAnCo createDongVatAnCo();
-	public abstract DongVatBien createDongVatBien()
-	public abstract DongVatAnThit createDongVatAnThit();
-}

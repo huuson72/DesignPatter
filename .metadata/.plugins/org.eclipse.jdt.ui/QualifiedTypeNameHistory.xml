@@ -9,7 +9,6 @@
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="composition.MyColor"/>
     <fullyQualifiedTypeName name="flyweight.ShapeFactory"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
     <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.text.ParseException"/>
@@ -31,7 +30,6 @@
     <fullyQualifiedTypeName name="com.nvtrung.dp.factorymethod.ChóFactory"/>
     <fullyQualifiedTypeName name="test.ite.IteratorSoNguyen"/>
     <fullyQualifiedTypeName name="test.ite.implement.IteratorSoNguyenChuan"/>
-    <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="SinhVien.SinhVien"/>
     <fullyQualifiedTypeName name="Singleton.DatabaseConnection"/>
     <fullyQualifiedTypeName name="Config.Config"/>
@@ -39,4 +37,7 @@
     <fullyQualifiedTypeName name="ArrayList"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="model.SinhVien"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

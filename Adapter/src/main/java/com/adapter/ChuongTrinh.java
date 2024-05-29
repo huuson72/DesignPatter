@@ -12,12 +12,12 @@ public class ChuongTrinh {
 	public static void main(String[] args) throws IOException {
 		
 			// 1. Doc danh sach sinh vien, cong nhan & add vao danh sach chung
-			List<SinhVien> lstSV = SinhVienReader.readFromFile("C:\\Users\\kstha\\DesignPattern\\sv.txt");			
+			List<SinhVien> lstSV = SinhVienReader.readFromFile("D:\\DesignPattern\\sv.txt");			
 			for (int i = 0; i < lstSV.size(); i++) {
 				System.out.println(lstSV.get(i).getHoTen());
 			}			
 		
-			var lstCN = CongNhanReader.readFromFile("C:\\Users\\kstha\\DesignPattern\\cn.txt");
+			var lstCN = CongNhanReader.readFromFile("D:\\DesignPattern\\cn.txt");
 			for (var x: lstCN)
 				System.out.println(x.getHoTen() + " ngày vào làm " + x.getNgayVaoLam());
 			

@@ -1,7 +1,0 @@
-package composition;
-
-public class ListBox extends Control {
-    public ListBox(Color mauNen, String text) {
-        super(mauNen, text);
-    }
-}

@@ -1,0 +1,3 @@
+D:\DesignPattern\SimpleFactory_KT01\TextFile
+MS_SQLSERVER
+jdbc:sqlserver://localhost:1433;databaseName=SinhVien;user=sa;password=070203

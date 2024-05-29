@@ -17,7 +17,7 @@ public class ChuongTrinh {
 
     static CauHinh docCauHinhTuFile() throws IOException {
         var ch = new CauHinh();
-        var br = new BufferedReader(new FileReader("C:\\Users\\kstha\\DesignPattern\\config.txt"));
+        var br = new BufferedReader(new FileReader("config"));
         String loaiNguon = br.readLine();
         ch.setLoaiNguon(loaiNguon);
         String chuoiKetNoi = br.readLine();
@@ -27,7 +27,7 @@ public class ChuongTrinh {
         return ch;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         var ch = docCauHinhTuFile();
 
         NguonDuLieu ndl;

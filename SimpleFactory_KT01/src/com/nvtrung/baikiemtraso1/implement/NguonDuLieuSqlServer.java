@@ -18,16 +18,17 @@ public class NguonDuLieuSqlServer implements NguonDuLieu {
 
     private static NguonDuLieuSqlServer instance;
 
-    public NguonDuLieuSqlServer(String cnnst) {
+    public NguonDuLieuSqlServer(String cnnst) throws ClassNotFoundException {
         this.chuoiKetNoi = cnnst;
         try {
+        	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             this.connection = DriverManager.getConnection(chuoiKetNoi);
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static NguonDuLieuSqlServer getInstance(String cnnst) {
+    public static NguonDuLieuSqlServer getInstance(String cnnst) throws ClassNotFoundException {
         if (instance == null) {
             instance = new NguonDuLieuSqlServer(cnnst);
         }
